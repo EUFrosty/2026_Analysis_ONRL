@@ -1,0 +1,35 @@
+name: CI Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true   # fetch ONRL submodule
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev \
+                              libxi-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev \
+                              libudev-dev libopenal-dev libflac-dev libvorbis-dev libogg-dev \
+                              libfreetype6-dev
+
+      - name: Build ONRL
+        run: |
+          cd ONRL
+          mkdir -p build
+          cmake -B build -S .
+          cmake --build build
+
+      - name: Run ONRL (headless)
+        run: |
+          cd ONRL/build
+          ./ONRL || echo "Executable built but cannot run in CI (no display)"
