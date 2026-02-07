@@ -15,13 +15,15 @@ This repository has been inactive for some time, so the project in question is n
 
 ## Build instructions:
 
-1. The build requires some dependencies that I did not have previously installed. Run:
-``sudo apt update
+1. The build requires some dependencies that I did not have previously installed. Run: <br>
+```
+sudo apt update
 sudo apt install libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev \
                  libxi-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev \
                  libudev-dev libopenal-dev libflac-dev libvorbis-dev libogg-dev \ 
-                 libfreetype6-dev```
-
+                 libfreetype6-dev
+```
+<br>
 This did the trick for me.
 
 2. I also had to add:
@@ -33,11 +35,13 @@ Depending on your cpp version, it might not be needed?
 3. (Optional) Additionally I changed the move controls from hjkl to wasd in main.cpp lines 41-44.
 
 4. Finaly, build:
-```cd ONRL
+```
+cd ONRL
 mkdir build
 cmake -B build -S .
 cmake --build build
-./build/ONRL || build/Debug/ONRL.exe```
+./build/ONRL || build/Debug/ONRL.exe
+```
 
 TODO: CI configuration is provided in .github/workflows/ci.yml
 
