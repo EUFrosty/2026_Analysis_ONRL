@@ -5,12 +5,6 @@ Bojan Velickovic 1070/2024
 The project analyzed in this assignment is https://github.com/nullspeaker/ONRL, main branch.
 The specific commit is ```12efcde267c00f120b9b16ad7800fe117dd44d9c```. <br>
 <br>
-I actually forked that repository to add:
-- ```#include <cstdint>``` to ONRL/src/main.cpp
-- ```#include <cstdint>``` and ```#include <string>``` to ONRL/src/console.h
-and change the movement controls to wasd from hjkl in main.cpp lines 41-44.<br>
-The inclusions were needed becouse of cpp version missmatch. It might not be needed for everyone, but it can't hurt eather.
-<br><br>
 This repository has been inactive for some time, so the project in question is not complete. It can still run and has core its functioanlity:
 - game window
 - terrain
@@ -18,6 +12,16 @@ This repository has been inactive for some time, so the project in question is n
 - enemies
 - movement
 - object collision
+<br>
+I actually forked that repository to add:
+
+
+- ```#include``` <cstdint> to ONRL/src/main.cpp
+- ```#include <cstdint>``` and ```#include <string>``` to ONRL/src/console.h
+
+and change the movement controls to wasd from hjkl in main.cpp lines 41-44.<br> <br>
+The inclusions were needed becouse of cpp version missmatch. It might not be needed for everyone, but it can't hurt eather.
+
 
 ## Build instructions:
 
