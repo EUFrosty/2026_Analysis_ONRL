@@ -1,0 +1,979 @@
+[1/5] Processing file /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp.
+45924 warnings and 1 error generated.
+Error while processing /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp.
+[2/5] Processing file /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp.
+93546 warnings and 2 errors generated.
+Error while processing /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp.
+[3/5] Processing file /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp.
+142311 warnings and 3 errors generated.
+Error while processing /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp.
+[4/5] Processing file /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp.
+178617 warnings and 4 errors generated.
+Error while processing /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp.
+[5/5] Processing file /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp.
+237795 warnings and 5 errors generated.
+Error while processing /home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp.
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:4:11: warning: the outermost namespace should be the 'LIBC_NAMESPACE' macro [llvmlibc-implementation-in-namespace]
+    4 | namespace gfx {
+      |           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:1: warning: constructor does not initialize these fields: window, font, glyphs [cppcoreguidelines-pro-type-member-init,hicpp-member-init]
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      | ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:18: warning: no header providing "uint32_t" is directly included [misc-include-cleaner]
+    3 | 
+    4 | namespace gfx {
+    5 | 
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:34: warning: 2 adjacent parameters of 'Console' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters]
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:43: note: the first parameter in the range is 'height'
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                                           ^~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:63: note: the last parameter in the range is 'font_path'
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                                                               ^~~~~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:34: note: 
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:51: note: 'uint32_t' and 'std::string' may be implicitly converted: 'uint32_t' (as 'unsigned int') -> 'std::string' (as 'int'), 'std::string' (as 'int') -> 'uint32_t' (as 'unsigned int')
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                                                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:6:56: warning: no header providing "std::string" is directly included [misc-include-cleaner]
+    3 | 
+    4 | namespace gfx {
+    5 | 
+    6 | Console::Console(uint32_t width, uint32_t height, std::string font_path, uint32_t font_size) : width(width), height(height), font_size(font_size) {
+      |                                                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:8:9: warning: 'halt_catch_fire' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+    8 |         util::halt_catch_fire("Failed to load font from " + font_path);
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:11:6: note: resolves to this declaration
+   11 | void halt_catch_fire(std::string message, std::source_location location = std::source_location::current());
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:8:59: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+    8 |         util::halt_catch_fire("Failed to load font from " + font_path);
+      |                                                           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:19:5: warning: 'log' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   19 |     util::log("Text rect is at " + std::to_string(text_rect.left) + "," + std::to_string(text_rect.top)
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:10:6: note: resolves to this declaration
+   10 | void log(std::string message, std::source_location location = std::source_location::current()) noexcept;
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:32:5: warning: 'log' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   32 |     util::log("Console created with width " + std::to_string(width) + " and height " + std::to_string(height));
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:10:6: note: resolves to this declaration
+   10 | void log(std::string message, std::source_location location = std::source_location::current()) noexcept;
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:32:45: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   32 |     util::log("Console created with width " + std::to_string(width) + " and height " + std::to_string(height));
+      |                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:32:47: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   32 |     util::log("Console created with width " + std::to_string(width) + " and height " + std::to_string(height));
+      |                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:32:88: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   32 |     util::log("Console created with width " + std::to_string(width) + " and height " + std::to_string(height));
+      |                                                                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:33:5: warning: 'log' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   33 |     util::log("Glyph size is " + std::to_string(glyph_px_width) + "x" + std::to_string(glyph_px_height)
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:10:6: note: resolves to this declaration
+   10 | void log(std::string message, std::source_location location = std::source_location::current()) noexcept;
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:33:32: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   33 |     util::log("Glyph size is " + std::to_string(glyph_px_width) + "x" + std::to_string(glyph_px_height)
+      |                                ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:33:34: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   33 |     util::log("Glyph size is " + std::to_string(glyph_px_width) + "x" + std::to_string(glyph_px_height)
+      |                                  ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:33:73: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   33 |     util::log("Glyph size is " + std::to_string(glyph_px_width) + "x" + std::to_string(glyph_px_height)
+      |                                                                         ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:34:36: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   34 |             + " with font size " + std::to_string(font_size));
+      |                                    ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:35:5: warning: 'log' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   35 |     util::log("Window size will be " + std::to_string(width * glyph_px_width) + "x" + std::to_string(height * glyph_px_height));
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:10:6: note: resolves to this declaration
+   10 | void log(std::string message, std::source_location location = std::source_location::current()) noexcept;
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:35:38: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+   35 |     util::log("Window size will be " + std::to_string(width * glyph_px_width) + "x" + std::to_string(height * glyph_px_height));
+      |                                      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:35:40: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   35 |     util::log("Window size will be " + std::to_string(width * glyph_px_width) + "x" + std::to_string(height * glyph_px_height));
+      |                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:35:87: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   35 |     util::log("Window size will be " + std::to_string(width * glyph_px_width) + "x" + std::to_string(height * glyph_px_height));
+      |                                                                                       ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:43:5: warning: missing username/bug in TODO [google-readability-todo]
+   43 |     // TODO: Window name as parameter.
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     // TODO(eufrosty): Window name as parameter.
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:56:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   56 |     for (uint32_t i = 0; i < width * height; i++) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:57:19: warning: variable name 'fg' is too short, expected at least 3 characters [readability-identifier-length]
+   57 |         sf::Color fg = sf::Color{211, 211, 211};
+      |                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:58:19: warning: variable name 'bg' is too short, expected at least 3 characters [readability-identifier-length]
+   58 |         sf::Color bg = sf::Color{ 34,  34,  34};
+      |                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:59:20: warning: variable name 'c' is too short, expected at least 3 characters [readability-identifier-length]
+   59 |         const char c = ' ';
+      |                    ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:82:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   82 |     for (uint32_t i = 0; i < width * height; i++) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:100:28: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  100 | sf::RenderWindow& Console::get_window() noexcept {
+      |                 ~          ^
+      |                 auto                             -> &
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:104:15: warning: method 'set_glyph' can be made const [readability-make-member-function-const]
+  104 | void Console::set_glyph(uint32_t x, uint32_t y, Console::glyph_t glyph) {
+      |               ^
+      |                                                                         const
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:104:34: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  104 | void Console::set_glyph(uint32_t x, uint32_t y, Console::glyph_t glyph) {
+      |                                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:104:46: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  104 | void Console::set_glyph(uint32_t x, uint32_t y, Console::glyph_t glyph) {
+      |                                              ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:106:9: warning: 'halt_catch_fire' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  106 |         util::halt_catch_fire("Attempted to set glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:11:6: note: resolves to this declaration
+   11 | void halt_catch_fire(std::string message, std::source_location location = std::source_location::current());
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:106:60: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  106 |         util::halt_catch_fire("Attempted to set glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:106:62: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  106 |         util::halt_catch_fire("Attempted to set glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:106:88: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  106 |         util::halt_catch_fire("Attempted to set glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:107:45: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  107 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:107:75: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  107 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:112:1: warning: return type 'const Console::glyph_t' is 'const'-qualified at the top level, which may reduce code readability without improving const correctness [readability-const-return-type]
+  112 | const Console::glyph_t Console::get_glyph(uint32_t x, uint32_t y) const {
+      | ^~~~~
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:112:33: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  112 | const Console::glyph_t Console::get_glyph(uint32_t x, uint32_t y) const {
+      | ~~~~~~~~~~~~~~~~~~~~~~          ^
+      | auto                                                                    -> const Console::glyph_t
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:112:52: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  112 | const Console::glyph_t Console::get_glyph(uint32_t x, uint32_t y) const {
+      |                                                    ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:112:64: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  112 | const Console::glyph_t Console::get_glyph(uint32_t x, uint32_t y) const {
+      |                                                                ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:114:9: warning: 'halt_catch_fire' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  114 |         util::halt_catch_fire("Attempted to get glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:11:6: note: resolves to this declaration
+   11 | void halt_catch_fire(std::string message, std::source_location location = std::source_location::current());
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:114:60: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  114 |         util::halt_catch_fire("Attempted to get glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:114:62: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  114 |         util::halt_catch_fire("Attempted to get glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                              ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:114:88: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  114 |         util::halt_catch_fire("Attempted to get glyph at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                                                        ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:115:45: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  115 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:115:75: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  115 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:130:35: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  130 | void Console::set_region(uint32_t x, uint32_t y, uint32_t w, uint32_t h, std::vector<Console::glyph_t> glyphs) {
+      |                                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:130:47: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  130 | void Console::set_region(uint32_t x, uint32_t y, uint32_t w, uint32_t h, std::vector<Console::glyph_t> glyphs) {
+      |                                               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:130:59: warning: parameter name 'w' is too short, expected at least 3 characters [readability-identifier-length]
+  130 | void Console::set_region(uint32_t x, uint32_t y, uint32_t w, uint32_t h, std::vector<Console::glyph_t> glyphs) {
+      |                                                           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:130:71: warning: parameter name 'h' is too short, expected at least 3 characters [readability-identifier-length]
+  130 | void Console::set_region(uint32_t x, uint32_t y, uint32_t w, uint32_t h, std::vector<Console::glyph_t> glyphs) {
+      |                                                                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:132:9: warning: 'halt_catch_fire' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  132 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:11:6: note: resolves to this declaration
+   11 | void halt_catch_fire(std::string message, std::source_location location = std::source_location::current());
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:132:61: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  132 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:132:63: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  132 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:132:89: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  132 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                                                         ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:133:45: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  133 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:133:75: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  133 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:136:9: warning: 'halt_catch_fire' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  136 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:11:6: note: resolves to this declaration
+   11 | void halt_catch_fire(std::string message, std::source_location location = std::source_location::current());
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:136:61: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  136 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:136:63: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  136 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:136:89: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  136 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                                                         ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:137:35: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  137 |                 + " with size " + std::to_string(w) + "x" + std::to_string(h)
+      |                                   ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:137:61: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  137 |                 + " with size " + std::to_string(w) + "x" + std::to_string(h)
+      |                                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:138:45: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  138 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:138:75: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  138 |                 + " but console size is " + std::to_string(width) + "x" + std::to_string(height));
+      |                                                                           ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:141:9: warning: 'halt_catch_fire' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  141 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:11:6: note: resolves to this declaration
+   11 | void halt_catch_fire(std::string message, std::source_location location = std::source_location::current());
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:141:61: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  141 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:141:63: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  141 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                               ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:141:89: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  141 |         util::halt_catch_fire("Attempted to set region at " + std::to_string(x) + "," + std::to_string(y)
+      |                                                                                         ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:142:35: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  142 |                 + " with size " + std::to_string(w) + "x" + std::to_string(h) + "=" + std::to_string(w*h) + " glyphs"
+      |                                   ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:142:61: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  142 |                 + " with size " + std::to_string(w) + "x" + std::to_string(h) + "=" + std::to_string(w*h) + " glyphs"
+      |                                                             ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:142:87: warning: 'to_string' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  142 |                 + " with size " + std::to_string(w) + "x" + std::to_string(h) + "=" + std::to_string(w*h) + " glyphs"
+      |                                                                                       ^
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../../include/c++/13/bits/basic_string.h:4177:3: note: resolves to this declaration
+ 4177 |   to_string(unsigned __val)
+      |   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:145:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+  145 |     for (uint32_t i = 0; i < w*h; i++) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:150:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  150 | sf::Vector2u Console::get_mouse_tile_xy() const {
+      |                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.cpp:159:15: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  159 | bool Console::poll_event(sf::Event& event) noexcept { return window.pollEvent(event); }
+      | ~~~~          ^
+      | auto                                                -> bool
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/console.h:3:10: error: 'SFML/Graphics.hpp' file not found [clang-diagnostic-error]
+    3 | #include <SFML/Graphics.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:2:1: warning: #includes are not sorted properly [llvm-include-order]
+    2 | #include "map.h"
+      | ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:3:1: warning: included header util.h is not used directly [misc-include-cleaner]
+    3 | #include "util.h"
+      | ^~~~~~~~~~~~~~~~~
+    4 | #include "colors.h"
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:4:1: warning: included header colors.h is not used directly [misc-include-cleaner]
+    4 | #include "colors.h"
+      | ^~~~~~~~~~~~~~~~~~~
+    5 | #include "unit.h"
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:6:1: warning: system include iostream not allowed [llvmlibc-restrict-system-libc-headers]
+    6 | #include <iostream>
+      | ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:6:1: warning: included header iostream is not used directly [misc-include-cleaner]
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:7:1: warning: system include optional not allowed [llvmlibc-restrict-system-libc-headers]
+    7 | #include <optional>
+      | ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:7:1: warning: included header optional is not used directly [misc-include-cleaner]
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:8:1: warning: system include cstdint not allowed [llvmlibc-restrict-system-libc-headers]
+    8 | #include <cstdint>
+      | ^~~~~~~~~~~~~~~~~~
+    9 | 
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:11:1: warning: replace macro with enum [cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]
+   11 | #define GW_OFF_X 16
+      | ^~~~~~~            
+      |                  = ,
+   12 | #define GW_OFF_Y 0
+      | ~~~~~~~
+      |                  =
+   13 | 
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:11:9: warning: macro 'GW_OFF_X' defines an integral constant; prefer an enum instead [cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]
+   11 | #define GW_OFF_X 16
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:11:9: warning: macro 'GW_OFF_X' used to declare a constant; consider using a 'constexpr' constant [cppcoreguidelines-macro-usage]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:12:9: warning: macro 'GW_OFF_Y' defines an integral constant; prefer an enum instead [cppcoreguidelines-macro-to-enum,modernize-macro-to-enum]
+   12 | #define GW_OFF_Y 0
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:12:9: warning: macro 'GW_OFF_Y' used to declare a constant; consider using a 'constexpr' constant [cppcoreguidelines-macro-usage]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:14:6: warning: declaration must be enclosed within the 'LIBC_NAMESPACE' namespace [llvmlibc-implementation-in-namespace]
+   14 | void render_unit(gfx::Console& console, const game::Unit& unit) noexcept {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:18:14: warning: declaration must be enclosed within the 'LIBC_NAMESPACE' namespace [llvmlibc-implementation-in-namespace]
+   18 | sf::Vector2u get_random_unoccupied_tile(const game::Map& map, const game::Unit) {
+      |              ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:18:14: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:18:79: warning: all parameters should be named in a function [hicpp-named-parameter,readability-named-parameter]
+   18 | sf::Vector2u get_random_unoccupied_tile(const game::Map& map, const game::Unit) {
+      |                                                                               ^
+      |                                                                                /*unused*/
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:18:79: warning: the const qualified parameter #2 is copied for each invocation; consider making it a reference [performance-unnecessary-value-param]
+   18 | sf::Vector2u get_random_unoccupied_tile(const game::Map& map, const game::Unit) {
+      |                                                                               ^
+      |                                                                               &
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:19:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   19 |     while (true) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:20:20: warning: variable name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+   20 |         const auto x = rand() % map.get_size().x;
+      |                    ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:20:24: warning: rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]
+   20 |         const auto x = rand() % map.get_size().x;
+      |                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:20:24: warning: function is not thread safe [concurrency-mt-unsafe]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:20:24: warning: 'rand' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+/usr/include/stdlib.h:573:12: note: resolves to this declaration
+  573 | extern int rand (void) __THROW;
+      |            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:20:24: warning: no header providing "rand" is directly included [misc-include-cleaner]
+    6 | #include <iostream>
+    7 | #include <optional>
+    8 | #include <cstdint>
+    9 | 
+   10 | 
+   11 | #define GW_OFF_X 16
+   12 | #define GW_OFF_Y 0
+   13 | 
+   14 | void render_unit(gfx::Console& console, const game::Unit& unit) noexcept {
+   15 |     console.set_glyph(unit.x + GW_OFF_X, unit.y + GW_OFF_Y, {unit.c, unit.fg, console.get_glyph(unit.x + GW_OFF_X, unit.y + GW_OFF_Y).bg});
+   16 | }
+   17 | 
+   18 | sf::Vector2u get_random_unoccupied_tile(const game::Map& map, const game::Unit) {
+   19 |     while (true) {
+   20 |         const auto x = rand() % map.get_size().x;
+      |                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:21:20: warning: variable name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+   21 |         const auto y = rand() % map.get_size().y;
+      |                    ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:21:24: warning: rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]
+   21 |         const auto y = rand() % map.get_size().y;
+      |                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:21:24: warning: function is not thread safe [concurrency-mt-unsafe]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:21:24: warning: 'rand' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+/usr/include/stdlib.h:573:12: note: resolves to this declaration
+  573 | extern int rand (void) __THROW;
+      |            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:28:12: warning: declaration must be enclosed within the 'LIBC_NAMESPACE' namespace [llvmlibc-implementation-in-namespace]
+   28 | enum class PLAYER_ACTION {
+      |            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:28:12: warning: enum 'PLAYER_ACTION' uses a larger base type ('int', size: 4 bytes) than necessary for its value set, consider using 'std::uint8_t' (1 byte) as the base type to reduce its size [performance-enum-size]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:38:15: warning: declaration must be enclosed within the 'LIBC_NAMESPACE' namespace [llvmlibc-implementation-in-namespace]
+   38 | PLAYER_ACTION get_player_action(const sf::Event& event) {
+      |               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:38:15: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   38 | PLAYER_ACTION get_player_action(const sf::Event& event) {
+      | ~~~~~~~~~~~~~ ^
+      | auto                                                    -> PLAYER_ACTION
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:50:5: warning: declaration must be enclosed within the 'LIBC_NAMESPACE' namespace [llvmlibc-implementation-in-namespace]
+   50 | int main(char** argv, int argc) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:50:5: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   50 | int main(char** argv, int argc) {
+      | ~~~ ^
+      | auto                            -> int
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:50:17: warning: parameter 'argv' is unused [misc-unused-parameters]
+   50 | int main(char** argv, int argc) {
+      |                 ^~~~
+      |                  /*argv*/
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:50:27: warning: parameter 'argc' is unused [misc-unused-parameters]
+   50 | int main(char** argv, int argc) {
+      |                           ^~~~
+      |                            /*argc*/
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:5: warning: random number generator seeded with a disallowed source of seed value will generate a predictable sequence of values [cert-msc32-c,cert-msc51-cpp]
+   51 |     srand(time(NULL));
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:5: warning: 'srand' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+/usr/include/stdlib.h:575:13: note: resolves to this declaration
+  575 | extern void srand (unsigned int __seed) __THROW;
+      |             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:5: warning: no header providing "srand" is directly included [misc-include-cleaner]
+   51 |     srand(time(NULL));
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:11: warning: 'time' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   51 |     srand(time(NULL));
+      |           ^
+/usr/include/time.h:76:15: note: resolves to this declaration
+   76 | extern time_t time (time_t *__timer) __THROW;
+      |               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:11: warning: no header providing "time" is directly included [misc-include-cleaner]
+    6 |     srand(time(NULL));
+      |           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:16: warning: use nullptr [hicpp-use-nullptr,modernize-use-nullptr]
+   51 |     srand(time(NULL));
+      |                ^~~~
+      |                nullptr
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:51:16: warning: no header providing "NULL" is directly included [misc-include-cleaner]
+    6 |     srand(time(NULL));
+      |                ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:53:26: warning: 120 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   53 |     gfx::Console console(120, 60, "data/font/kongtext.ttf");
+      |                          ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:53:31: warning: 60 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   53 |     gfx::Console console(120, 60, "data/font/kongtext.ttf");
+      |                               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:55:19: warning: 104 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   55 |     game::Map map(104, 50);
+      |                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:55:24: warning: 50 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   55 |     game::Map map(104, 50);
+      |                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:60:5: warning: do not declare C-style arrays, use std::array<> instead [cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays]
+   60 |     game::Unit goblins[12];
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:60:24: warning: 12 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   60 |     game::Unit goblins[12];
+      |                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:61:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   61 |     for (uint32_t i = 0; i < 12; ++i) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:61:30: warning: 12 is a magic number; consider replacing it with a named constant [cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers]
+   61 |     for (uint32_t i = 0; i < 12; ++i) {
+      |                              ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:62:9: warning: do not use array subscript when the index is not an integer constant expression [cppcoreguidelines-pro-bounds-constant-array-index]
+   62 |         goblins[i] = {(i==0)?'G':'g', Color::COPPER, true};
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:63:9: warning: do not use array subscript when the index is not an integer constant expression [cppcoreguidelines-pro-bounds-constant-array-index]
+   63 |         goblins[i].set_xy(map, map.get_random_passable());
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:71:9: warning: 'render_unit' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   71 |         render_unit(console, player);
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:14:6: note: resolves to this declaration
+   14 | void render_unit(gfx::Console& console, const game::Unit& unit) noexcept {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:72:9: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   72 |         for (auto& goblin : goblins) {
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:73:13: warning: 'render_unit' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+   73 |             render_unit(console, goblin);
+      |             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:14:6: note: resolves to this declaration
+   14 | void render_unit(gfx::Console& console, const game::Unit& unit) noexcept {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:89:9: warning: variable 'action' of type 'PLAYER_ACTION' can be declared 'const' [misc-const-correctness]
+   89 |         PLAYER_ACTION action = PLAYER_ACTION::NONE;
+      |         ^
+      |                       const 
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:90:9: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   90 |         while (console.poll_event(event)) {
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:106:17: warning: 'accumulate_ai_time' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  106 |                 game::Unit::accumulate_ai_time(player.speed);
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.h:45:17: note: resolves to this declaration
+   45 |     static void accumulate_ai_time(const uint32_t timedelta) {
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:110:17: warning: 'accumulate_ai_time' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  110 |                 game::Unit::accumulate_ai_time(player.speed);
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.h:45:17: note: resolves to this declaration
+   45 |     static void accumulate_ai_time(const uint32_t timedelta) {
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:114:17: warning: 'accumulate_ai_time' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  114 |                 game::Unit::accumulate_ai_time(player.speed);
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.h:45:17: note: resolves to this declaration
+   45 |     static void accumulate_ai_time(const uint32_t timedelta) {
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:118:17: warning: 'accumulate_ai_time' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  118 |                 game::Unit::accumulate_ai_time(player.speed);
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.h:45:17: note: resolves to this declaration
+   45 |     static void accumulate_ai_time(const uint32_t timedelta) {
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/main.cpp:121:17: warning: 'accumulate_ai_time' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+  121 |                 game::Unit::accumulate_ai_time(player.speed);
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.h:45:17: note: resolves to this declaration
+   45 |     static void accumulate_ai_time(const uint32_t timedelta) {
+      |                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:2:1: warning: #includes are not sorted properly [llvm-include-order]
+    2 | #include <cstdlib>
+      | ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:2:1: warning: system include cstdlib not allowed [llvmlibc-restrict-system-libc-headers]
+    2 | #include <cstdlib>
+      | ^~~~~~~~~~~~~~~~~~
+    3 | #include <cassert>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:3:1: warning: system include cassert not allowed [llvmlibc-restrict-system-libc-headers]
+    3 | #include <cassert>
+      | ^~~~~~~~~~~~~~~~~~
+    4 | #include <iostream>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:4:1: warning: system include iostream not allowed [llvmlibc-restrict-system-libc-headers]
+    4 | #include <iostream>
+      | ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:4:1: warning: included header iostream is not used directly [misc-include-cleaner]
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:5:1: warning: system include limits not allowed [llvmlibc-restrict-system-libc-headers]
+    5 | #include <limits>
+      | ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:5:1: warning: included header limits is not used directly [misc-include-cleaner]
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:7:11: warning: the outermost namespace should be the 'LIBC_NAMESPACE' macro [llvmlibc-implementation-in-namespace]
+    7 | namespace game {
+      |           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:12:6: warning: variable 'make_room' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+   12 | void make_room(std::vector<Map::Tile>& tiles, uint32_t x, uint32_t y, uint32_t w, uint32_t h, uint32_t stride) {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:28:6: warning: variable 'BSP_recurse_region' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+   28 | bool BSP_recurse_region(
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:22: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:41: warning: 2 adjacent parameters of 'CA_count_neighbors' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:71: note: the first parameter in the range is 'tiles'
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                                                       ^~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:87: note: the last parameter in the range is 'w'
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                                                                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:41: note: 
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:78: note: 'const int &' and 'uint32_t' parameters accept and bind the same kind of values
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                                                              ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:78: note: 'const int &' and 'uint32_t' may be implicitly converted: 'const int &' (as 'int') -> 'uint32_t' (as 'unsigned int'), 'uint32_t' (as 'unsigned int') -> 'const int &' (as 'int')
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:78: warning: no header providing "uint32_t" is directly included [misc-include-cleaner]
+    2 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                                                              ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:87: warning: parameter name 'w' is too short, expected at least 3 characters [readability-identifier-length]
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                                                                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:84:99: warning: parameter name 'h' is too short, expected at least 3 characters [readability-identifier-length]
+   84 | std::vector<uint8_t> CA_count_neighbors(const std::vector<Map::Tile>& tiles, uint32_t w, uint32_t h) {
+      |                                                                                                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:85:76: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+   85 |     auto get_neighbors = [&](const std::vector<Map::Tile>& tiles, uint32_t x, uint32_t y) {
+      |                                                                            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:85:88: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+   85 |     auto get_neighbors = [&](const std::vector<Map::Tile>& tiles, uint32_t x, uint32_t y) {
+      |                                                                                        ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:86:54: warning: statement should be inside braces [hicpp-braces-around-statements,readability-braces-around-statements]
+   86 |         if (x == 0 || y == 0 || x == w-1 || y == h-1) return uint8_t(-1);
+      |                                                      ^                   
+      |                                                       {
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:86:62: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+   86 |         if (x == 0 || y == 0 || x == w-1 || y == h-1) return uint8_t(-1);
+      |                                                              ^~~~~~~
+      |                                                              static_cast<uint8_t>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:86:62: warning: no header providing "uint8_t" is directly included [misc-include-cleaner]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:89:13: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   89 |             for (int j = -1; j < 2; j++) {
+      |             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:90:38: warning: statement should be inside braces [hicpp-braces-around-statements,readability-braces-around-statements]
+   90 |                 if (i == 0 && j == 0) continue;
+      |                                      ^         
+      |                                       {
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:91:56: warning: redundant boolean literal supplied to boolean operator [readability-simplify-boolean-expr]
+   91 |                 if (tiles[(y+j)*w + (x+i)].passable == false) neighbors++;
+      |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+      |                     !static_cast<bool>(tiles[(y+j)*w + (x+i)].passable)
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:91:62: warning: statement should be inside braces [hicpp-braces-around-statements,readability-braces-around-statements]
+   91 |                 if (tiles[(y+j)*w + (x+i)].passable == false) neighbors++;
+      |                                                              ^            
+      |                                                               {
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:97:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+   97 |     for (uint32_t i = 0; i < w*h; i++) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:98:9: warning: variable 'x' of type 'uint32_t' (aka 'unsigned int') can be declared 'const' [misc-const-correctness]
+   98 |         uint32_t x = i%w;
+      |         ^
+      |                  const 
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:98:18: warning: variable name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+   98 |         uint32_t x = i%w;
+      |                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:99:9: warning: variable 'y' of type 'uint32_t' (aka 'unsigned int') can be declared 'const' [misc-const-correctness]
+   99 |         uint32_t y = i/w;
+      |         ^
+      |                  const 
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:99:18: warning: variable name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+   99 |         uint32_t y = i/w;
+      |                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:105:6: warning: variable 'CA_anneal_region_impl' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+  105 | void CA_anneal_region_impl(std::vector<Map::Tile>& tiles, const uint32_t w, const uint32_t h) {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:115:6: warning: variable 'CA_anneal_region' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+  115 | void CA_anneal_region(std::vector<Map::Tile>& tiles, const uint32_t w, const uint32_t h, const uint32_t passes) {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:121:6: warning: variable 'enmossify' is non-const and globally accessible, consider making it const [cppcoreguidelines-avoid-non-const-global-variables]
+  121 | void enmossify(std::vector<Map::Tile>& tiles, const uint32_t w, const uint32_t h) {
+      |      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:137:2: warning: anonymous namespace ends with a comment that refers to a wrong namespace 'anonymous' [google-readability-namespace-comments,llvm-namespace-comment]
+  137 | }  // namespace anonymous
+      |  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:9:11: note: anonymous namespace starts here
+    9 | namespace {
+      |           ^
+note: cannot apply fix-it because an alias checker has suggested a different fix-it; please remove one of the checkers ('google-readability-namespace-comments', 'llvm-namespace-comment') or ensure they are both configured the same
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:11: warning: method 'render_to' can be made const [readability-make-member-function-const]
+  153 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |           ^
+      |                                                                    const
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:26: warning: no header providing "gfx::Console" is directly included [misc-include-cleaner]
+    2 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |                          ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:44: warning: 2 adjacent parameters of 'render_to' of similar type ('uint32_t') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+  153 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:53: note: the first parameter in the range is 'x'
+  153 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |                                                     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:65: note: the last parameter in the range is 'y'
+  153 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |                                                                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:53: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  153 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |                                                     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:153:65: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  153 | void Map::render_to(gfx::Console& console, uint32_t x, uint32_t y) noexcept {
+      |                                                                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:154:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+  154 |     for (size_t i = 0; i < width*height; ++i) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:154:28: warning: performing an implicit widening conversion to type 'size_t' (aka 'unsigned long') of a multiplication performed in type 'uint32_t' (aka 'unsigned int') [bugprone-implicit-widening-of-multiplication-result]
+  154 |     for (size_t i = 0; i < width*height; ++i) {
+      |                            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:154:28: note: make conversion explicit to silence this warning
+    2 |     for (size_t i = 0; i < width*height; ++i) {
+      |                            ^~~~~~~~~~~~
+      |                            static_cast<size_t>( )
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:154:28: note: perform multiplication in a wider type
+  154 |     for (size_t i = 0; i < width*height; ++i) {
+      |                            ^~~~~
+      |                            static_cast<size_t>( )
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:159:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  159 | sf::Vector2u Map::get_size() const {
+      |                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:163:23: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  163 | const Map::Tile& Map::get_tile(const size_t x, const size_t y) const {
+      | ~~~~~~~~~~~~~~~~      ^
+      | auto                                                                 -> const Map::Tile&
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:163:45: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  163 | const Map::Tile& Map::get_tile(const size_t x, const size_t y) const {
+      |                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:163:61: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  163 | const Map::Tile& Map::get_tile(const size_t x, const size_t y) const {
+      |                                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:172:17: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  172 | Map::Tile& Map::get_tile_mut(const size_t x, const size_t y) {
+      | ~~~~~~~~~~      ^
+      | auto                                                         -> Map::Tile&
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:172:17: warning: method 'get_tile_mut' can be made const [readability-make-member-function-const]
+  172 | Map::Tile& Map::get_tile_mut(const size_t x, const size_t y) {
+      |                 ^
+      |                                                              const
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:172:43: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  172 | Map::Tile& Map::get_tile_mut(const size_t x, const size_t y) {
+      |                                           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:172:59: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  172 | Map::Tile& Map::get_tile_mut(const size_t x, const size_t y) {
+      |                                                           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:257:19: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  257 | sf::Vector2u Map::get_random_passable() const {
+      |                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:258:5: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+  258 |     while (true) {
+      |     ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:259:18: warning: variable name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+  259 |         uint32_t x = rand() % width;
+      |                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:259:22: warning: rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]
+  259 |         uint32_t x = rand() % width;
+      |                      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:259:22: warning: function is not thread safe [concurrency-mt-unsafe]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:259:22: warning: 'rand' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+/usr/include/stdlib.h:573:12: note: resolves to this declaration
+  573 | extern int rand (void) __THROW;
+      |            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:260:18: warning: variable name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+  260 |         uint32_t y = rand() % height;
+      |                  ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:260:22: warning: rand() has limited randomness; use C++11 random library instead [cert-msc30-c,cert-msc50-cpp]
+  260 |         uint32_t y = rand() % height;
+      |                      ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:260:22: warning: function is not thread safe [concurrency-mt-unsafe]
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:260:22: warning: 'rand' must resolve to a function declared within the namespace defined by the 'LIBC_NAMESPACE' macro [llvmlibc-callee-namespace]
+/usr/include/stdlib.h:573:12: note: resolves to this declaration
+  573 | extern int rand (void) __THROW;
+      |            ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:261:37: warning: statement should be inside braces [hicpp-braces-around-statements,readability-braces-around-statements]
+  261 |         if (get_tile(x, y).passable) return {x, y};
+      |                                     ^              
+      |                                      {
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:265:32: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+  265 | std::vector<sf::Vector2u> Map::get_xys_within_radius(const sf::Vector2u& pos, const uint32_t radius) const {
+      |                                ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:267:19: warning: loop variable name 'y' is too short, expected at least 2 characters [readability-identifier-length]
+  267 |     for (uint32_t y = 0; y < height; ++y) {
+      |                   ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:268:9: warning: kernel performance could be improved by unrolling this loop with a '#pragma unroll' directive [altera-unroll-loops]
+  268 |         for (uint32_t x = 0; x < width; ++x) {
+      |         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:268:23: warning: loop variable name 'x' is too short, expected at least 2 characters [readability-identifier-length]
+  268 |         for (uint32_t x = 0; x < width; ++x) {
+      |                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:269:26: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+  269 |             if (std::abs(int(x) - int(pos.x)) + std::abs(int(y) - int(pos.y)) <= int(radius)) {
+      |                          ^~~
+      |                          static_cast<int>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:269:58: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+  269 |             if (std::abs(int(x) - int(pos.x)) + std::abs(int(y) - int(pos.y)) <= int(radius)) {
+      |                                                          ^~~
+      |                                                          static_cast<int>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/map.cpp:269:82: warning: C-style casts are discouraged; use static_cast [google-readability-casting]
+  269 |             if (std::abs(int(x) - int(pos.x)) + std::abs(int(y) - int(pos.y)) <= int(radius)) {
+      |                                                                                  ^~~
+      |                                                                                  static_cast<int>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:3:11: warning: the outermost namespace should be the 'LIBC_NAMESPACE' macro [llvmlibc-implementation-in-namespace]
+    3 | namespace game {
+      |           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:5:12: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+    5 | bool Unit::can_move_to(const game::Map& map, const uint32_t x, const uint32_t y) const {
+      |            ^
+note: this fix will not be applied because it overlaps with another fix
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:5:12: warning: method 'can_move_to' can be made static [readability-convert-member-functions-to-static]
+    5 | bool Unit::can_move_to(const game::Map& map, const uint32_t x, const uint32_t y) const {
+      |            ^                                                                     ~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:5:36: warning: no header providing "game::Map" is directly included [misc-include-cleaner]
+    2 | 
+    3 | namespace game {
+    4 | 
+    5 | bool Unit::can_move_to(const game::Map& map, const uint32_t x, const uint32_t y) const {
+      |                                    ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:5:52: warning: no header providing "uint32_t" is directly included [misc-include-cleaner]
+    2 | 
+    3 | namespace game {
+    4 | 
+    5 | bool Unit::can_move_to(const game::Map& map, const uint32_t x, const uint32_t y) const {
+      |                                                    ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:5:61: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+    5 | bool Unit::can_move_to(const game::Map& map, const uint32_t x, const uint32_t y) const {
+      |                                                             ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:5:79: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+    5 | bool Unit::can_move_to(const game::Map& map, const uint32_t x, const uint32_t y) const {
+      |                                                                               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:6:74: warning: statement should be inside braces [hicpp-braces-around-statements,readability-braces-around-statements]
+    6 |     if (x < 0 || y < 0 || x >= map.get_size().x || y >= map.get_size().y) return false;
+      |                                                                          ^             
+      |                                                                           {
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:13:12: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   13 | bool Unit::try_move_to(game::Map& map, const uint32_t x, const uint32_t y) {
+      | ~~~~       ^
+      | auto                                                                       -> bool
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:13:55: warning: parameter name 'x' is too short, expected at least 3 characters [readability-identifier-length]
+   13 | bool Unit::try_move_to(game::Map& map, const uint32_t x, const uint32_t y) {
+      |                                                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:13:73: warning: parameter name 'y' is too short, expected at least 3 characters [readability-identifier-length]
+   13 | bool Unit::try_move_to(game::Map& map, const uint32_t x, const uint32_t y) {
+      |                                                                         ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:24:12: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   24 | bool Unit::can_act() const {
+      | ~~~~       ^
+      | auto                       -> bool
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/unit.cpp:28:55: warning: parameter name 'xy' is too short, expected at least 3 characters [readability-identifier-length]
+   28 | void Unit::set_xy(game::Map& map, const sf::Vector2u& xy) {
+      |                                                       ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:1:1: warning: included header util.h is not used directly [misc-include-cleaner]
+    1 | #include "util.h"
+      | ^~~~~~~~~~~~~~~~~
+    2 | #include <cmath>
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:2:1: warning: system include cmath not allowed [llvmlibc-restrict-system-libc-headers]
+    2 | #include <cmath>
+      | ^~~~~~~~~~~~~~~~
+    3 | 
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:4:11: warning: the outermost namespace should be the 'LIBC_NAMESPACE' macro [llvmlibc-implementation-in-namespace]
+    4 | namespace util {
+      |           ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:6:15: warning: no header providing "std::string" is directly included [misc-include-cleaner]
+    3 | 
+    4 | namespace util {
+    5 | 
+    6 | void log(std::string message, std::source_location location) noexcept {
+      |               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:7:10: warning: no header providing "std::cout" is directly included [misc-include-cleaner]
+    3 | 
+    4 | namespace util {
+    5 | 
+    6 | void log(std::string message, std::source_location location) noexcept {
+    7 |     std::cout << location.file_name() << ":" << location.line() << ":" << location.column() << " " << message << std::endl;
+      |          ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:12:16: warning: no header providing "std::runtime_error" is directly included [misc-include-cleaner]
+    3 | 
+    4 | namespace util {
+    5 | 
+    6 | void log(std::string message, std::source_location location) noexcept {
+    7 |     std::cout << location.file_name() << ":" << location.line() << ":" << location.column() << " " << message << std::endl;
+    8 | }
+    9 | 
+   10 | void halt_catch_fire(std::string message, std::source_location location) {
+   11 |     log(message, location);
+   12 |     throw std::runtime_error(message);
+      |                ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:15:7: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   15 | float distance(::sf::Vector2u a, ::sf::Vector2u b) {
+      | ~~~~~ ^
+      | auto                                               -> float
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:15:16: warning: 2 adjacent parameters of 'distance' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   15 | float distance(::sf::Vector2u a, ::sf::Vector2u b) {
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:15:31: note: the first parameter in the range is 'a'
+   15 | float distance(::sf::Vector2u a, ::sf::Vector2u b) {
+      |                               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:15:49: note: the last parameter in the range is 'b'
+   15 | float distance(::sf::Vector2u a, ::sf::Vector2u b) {
+      |                                                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:15:31: warning: parameter name 'a' is too short, expected at least 3 characters [readability-identifier-length]
+   15 | float distance(::sf::Vector2u a, ::sf::Vector2u b) {
+      |                               ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:15:49: warning: parameter name 'b' is too short, expected at least 3 characters [readability-identifier-length]
+   15 | float distance(::sf::Vector2u a, ::sf::Vector2u b) {
+      |                                                 ^
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.cpp:20:17: warning: use a trailing return type for this function [modernize-use-trailing-return-type]
+   20 |     std::string to_string(::sf::Event::EventType etype)  {
+      |     ~~~~~~~~~~~ ^
+      |     auto                                                -> std::string
+/home/eufrosty/Desktop/VS/2026_Analysis_ONRL/ONRL/src/util.h:5:10: error: 'SFML/Window.hpp' file not found [clang-diagnostic-error]
+    5 | #include <SFML/Window.hpp>
+      |          ^~~~~~~~~~~~~~~~~
+Suppressed 237542 warnings (237542 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+Found compiler error(s).
