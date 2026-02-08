@@ -48,7 +48,22 @@ cmake --build build
 CI configuration is provided in .github/workflows/ci.yml
 
 ## Tools and Analysis
-(To be filled in with results from cppcheck, Valgrind, tests, etc.)
+1. Cppcheck
+   cd ONRL and run cppcheck --enable=all --inconclusive --quiet src/ 2>../tools/cppcheck/cppcheck.log which runs the tool on ONRL src/ code.
+   --enable=all runs checks for everything (style, performance, portability...)
+   --inconclusive reports issues that are not 100% certain
+   --quiet only shows warnings/errors
+   2>../tools/cppcheck/cppcheck.log redirects the output into a log file at the provided path
+
+   In the log file we can see that there are a lot of warnings that the tool could not find the libraries included in the code (things like iostream, SFML/Graphics.hpp, optional, cstdint...). We can safely ignore these warnings.
+   Additional warnings are things like:
+     - different names for arugments in the funtion definition and declaration
+     - redundant or unnecessary if clauses
+     - unused variables and functions
+     - not passing vectors and strings by reference but rather by name which copies the whole thing
+     - use existing std library functions instead of implementing new ones that do the same thing
+  
+2. 
 
 
 ## Conclusions
