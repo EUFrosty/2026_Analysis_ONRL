@@ -111,8 +111,8 @@ LEAK SUMMARY:
     suppressed: 0 bytes in 0 blocks
 ```
 While the full leak report can be found in the log.<br>
-As we can see, there is a lot of still reachable memory. That is memory that was left allocated at program exit but it was still reachable. This in it self is not a big problem.For example, in record 74/130 we have still reachable memory that happened due to ```gfx::Console::Console(unsigned int, unsigned int, std::string, unsigned int)``` which creates a console i.e. a game window. The practice of leaveing this memory allocated at program end without losing the pointer to it seems standard for GUI applications that rely on the OS to clean up such memory on program exit.<br>
-In record 120/130 we have our only definitely lost memory, which is a genuine memory leak. However, the leak didn't occur in the repository code, but instead it happened in the code of the lidbus-1 library.<br>
-In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the lidbus-1 library, not in the original ONRL source code.<br>
+- As we can see, there is a lot of still reachable memory. That is memory that was left allocated at program exit but it was still reachable. This in it self is not a big problem.For example, in record 74/130 we have still reachable memory that happened due to ```gfx::Console::Console(unsigned int, unsigned int, std::string, unsigned int)``` which creates a console i.e. a game window. The practice of leaveing this memory allocated at program end without losing the pointer to it seems standard for GUI applications that rely on the OS to clean up such memory on program exit.<br>
+- In record 120/130 we have our only definitely lost memory, which is a genuine memory leak. However, the leak didn't occur in the repository code, but instead it happened in the code of the lidbus-1 library.<br>
+- In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the lidbus-1 library, not in the original ONRL source code.<br>
 ## Conclusions
 (To be completed after analysis)
