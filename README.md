@@ -70,6 +70,31 @@ CI configuration is provided in .github/workflows/ci.yml
    ``` 
    which runs the tool on ONRL src/ code. <br>
 
+  In the log we can find 104 warnings and 2 errors. <br>
+  Regarding the errors, they are both in connection with the SFML (Simple and Fast Multimedia Library). Clang-tidy can't find the library, which is to be expected since the dependencies are built using cmake and are located in a seperate directory. This means that these errors are not really errors, just indicators that the necessary dependencies were not included in the directory in which we ran clang-tidy.<br>
+  Regarding the warnings, let's split them up by type:
+  1. bugprone
+     - a couple of warnings for easily swappable parameters of functions that share the same type
+     - implicit conversion from uint32_t to unsigned long due to multiplication of two uint32_t values
+    
+  2. performance
+     - not passing parameters by reference when that would be more optimal
+     - using larger types than necessary
+    
+  3. modernize
+     - when to use a trailing return type
+    
+  4. readability
+     - mostly paramaeter naming issues
+     - replacing "magic numbers" with named constants
+     - leaveing out braces {} for if blocks when they have only one line
+     - ...
+    
+  5. cppcoreguidelines
+     - avoid pointer arithmetic
+     - replacing macros with enums
+     - avoid creating C-style arrays, should use ```std::array<>``` instead
+     - ...
 
 ## Conclusions
 (To be completed after analysis)
