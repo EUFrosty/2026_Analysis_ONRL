@@ -5,7 +5,7 @@ Bojan Velickovic 1070/2024
 The project analyzed in this assignment is https://github.com/nullspeaker/ONRL, main branch.
 The specific commit is ```12efcde267c00f120b9b16ad7800fe117dd44d9c```. <br>
 <br>
-This repository has been inactive for some time, so the project in question is not complete. It can still run and has core its functioanlity:
+This repository has been inactive for some time, so the project in question is not complete. It can still run and has its core functioanlity:
 - game window
 - terrain
 - player character
@@ -20,7 +20,7 @@ I actually forked that repository to add:
 - ```#include <cstdint>``` and ```#include <string>``` to ONRL/src/console.h
 
 and change the movement controls to wasd from hjkl in main.cpp lines 41-44.<br> <br>
-The inclusions were needed becouse of cpp version missmatch. It might not be needed for everyone, but it can't hurt eather.
+The inclusions were needed becouse of cpp version missmatch. It might not be needed for everyone, but it can't hurt either.
 
 
 ## Build instructions:
@@ -57,7 +57,7 @@ CI configuration is provided in .github/workflows/ci.yml
 <br><br>
    In the log file we can see that there are a lot of warnings that the tool could not find the libraries included in the code (things like iostream, SFML/Graphics.hpp, optional, cstdint...). We can safely ignore these warnings.<br>
    Additional warnings are things like:
-     - different names for arugments in the funtion definition and declaration
+     - different names for arguments in the function definition and declaration
      - redundant or unnecessary if clauses
      - unused variables and functions
      - not passing vectors and strings by reference but rather by name which copies the whole thing
@@ -71,7 +71,7 @@ CI configuration is provided in .github/workflows/ci.yml
    which runs the tool on ONRL src/ code. <br>
 
   In the log we can find 104 warnings and 2 errors. <br>
-  Regarding the errors, they are both in connection with the SFML (Simple and Fast Multimedia Library). Clang-tidy can't find the library, which is to be expected since the dependencies are built using cmake and are located in a seperate directory. This means that these errors are not really errors, just indicators that the necessary dependencies were not included in the directory in which we ran clang-tidy.<br>
+  Regarding the errors, they are both in connection with the SFML (Simple and Fast Multimedia Library). Clang-tidy can't find the library, which is to be expected since the dependencies are built using cmake and are located in a separate directory. This means that these errors are not really errors, just indicators that the necessary dependencies were not included in the directory in which we ran clang-tidy.<br>
   Regarding the warnings, let's split them up by type:
   1. bugprone
      - a couple of warnings for easily swappable parameters of functions that share the same type
@@ -87,7 +87,7 @@ CI configuration is provided in .github/workflows/ci.yml
   4. readability
      - mostly paramaeter naming issues
      - replacing "magic numbers" with named constants
-     - leaveing out braces {} for if blocks when they have only one line
+     - leaving out braces {} for if blocks when they have only one line
      - ...
     
   5. cppcoreguidelines
@@ -112,7 +112,7 @@ LEAK SUMMARY:
 ```
 While the full leak report can be found in the log.<br>
 - As we can see, there is a lot of still reachable memory. That is memory that was left allocated at program exit but it was still reachable. This in it self is not a big problem.For example, in record 74/130 we have still reachable memory that happened due to ```gfx::Console::Console(unsigned int, unsigned int, std::string, unsigned int)``` which creates a console i.e. a game window. The practice of leaveing this memory allocated at program end without losing the pointer to it seems standard for GUI applications that rely on the OS to clean up such memory on program exit.<br>
-- In record 120/130 we have our only definitely lost memory, which is a genuine memory leak. However, the leak didn't occur in the repository code, but instead it happened in the code of the lidbus-1 library.<br>
-- In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the lidbus-1 library, not in the original ONRL source code.<br>
+- In record 120/130 we have our only definitely lost memory, which is a genuine memory leak. However, the leak didn't occur in the repository code, but instead it happened in the code of the libdbus-1 library.<br>
+- In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the libdbus-1 library, not in the original ONRL source code.<br>
 ## Conclusions
 (To be completed after analysis)
