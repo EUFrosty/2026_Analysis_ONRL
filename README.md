@@ -64,7 +64,11 @@ CI configuration is provided in .github/workflows/ci.yml
      - use existing std library functions instead of implementing new ones that do the same thing
   
 2. Clang-tidy
-   ```cd ONRL``` and run ```clang-tidy src/*.cpp -checks=* -- -I./src 2>&1 | tee ../tools/clang-tidy/clang-tidy.log``` which runs the tool on ONRL src/ code. <br>
+   ```cd ONRL``` and run 
+   ```
+   clang-tidy src/*.cpp -checks='bugprone-*,performance-*,modernize-*,readability-*,cppcoreguidelines-*,-cppcoreguidelines-avoid-magic-numbers' -- -I./src 2>&1 | tee ../tools/clang-tidy/clang-tidy.log
+   ``` 
+   which runs the tool on ONRL src/ code. <br>
 
 
 ## Conclusions
