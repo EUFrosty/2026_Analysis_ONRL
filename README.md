@@ -115,11 +115,11 @@ While the full leak report can be found in the log.<br>
 - In record 120/130 we have our only definitely lost memory, which is a genuine memory leak. However, the leak didn't occur in the repository code, but instead it happened in the code of the libdbus-1 library.<br>
 - In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the libdbus-1 library, not in the original ONRL source code.<br>
 
-4. Unit testing
+4. Unit testing <br>
 TODO
-5. Lizart
+5. Lizard <br>
 TODO
-6. Hyperfine
+6. Hyperfine <br>
 TODO
 
 
