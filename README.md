@@ -94,7 +94,9 @@ CI configuration is provided in .github/workflows/ci.yml
      - avoid pointer arithmetic
      - replacing macros with enums
      - avoid creating C-style arrays, should use ```std::array<>``` instead
-     - ...
+     - ...    
+
+
 3. Valgrind<br>
 ```cd ONRL``` and run ```valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/ONRL &>../tools/valgrind/valgrind_log.txt``` which runs the executable ONRL file and tracks memory leaks.<br>
 - ```--leak-check=full``` - show all leaks
@@ -116,9 +118,18 @@ While the full leak report can be found in the log.<br>
 - In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the libdbus-1 library, not in the original ONRL source code.<br>
 
 4. Unit testing <br>
-TODO
+First what we need to do is install the SFML librariy globally (optional, second way is to link it when running tests). Run:
+```sudo apt install libsfml-dev```. <br>
+After that we do ```cd tools/unit-tests``` here is a prepared .ttf (font) file that is required for console(window) creation. There are unit tests in console_test.cpp. <br>
+First we run: <br>
+```
+g++ -std=c++20 -I/usr/include/gtest -I/ONRL -I/ONRL/build/_deps/sfml-src/include test_console.cpp ../../ONRL/src/console.cpp ../../ONRL/src/util.cpp -L/ONRL/build/_deps/sfml-build/lib -lsfml-graphics -lsfml-window -lsfml-system -lgtest -lgtest_main -pthread -o runTests
+```
+to generate the executable file. After that, we just run it with ```./runTests```.
+
 5. Lizard <br>
 TODO
+
 6. Hyperfine <br>
 TODO
 
