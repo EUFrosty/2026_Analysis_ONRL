@@ -48,7 +48,7 @@ cmake --build build
 CI configuration is provided in .github/workflows/ci.yml
 
 ## Tools and Analysis
-1. Cppcheck
+1. Cppcheck <br>
    ```cd ONRL``` and run ```cppcheck --enable=all --inconclusive --quiet src/ 2>../tools/cppcheck/cppcheck.log``` which runs the tool on ONRL src/ code. <br>
    ```--enable=all``` runs checks for everything (style, performance, portability...)<br>
    ```--inconclusive``` reports issues that are not 100% certain<br>
@@ -63,7 +63,7 @@ CI configuration is provided in .github/workflows/ci.yml
      - not passing vectors and strings by reference but rather by name which copies the whole thing
      - use existing std library functions instead of implementing new ones that do the same thing
   
-2. Clang-tidy
+2. Clang-tidy<br>
    ```cd ONRL``` and run 
    ```
    clang-tidy src/*.cpp -checks='bugprone-*,performance-*,modernize-*,readability-*,cppcoreguidelines-*,-cppcoreguidelines-avoid-magic-numbers' -- -I./src 2>&1 | tee ../tools/clang-tidy/clang-tidy.log
@@ -95,6 +95,24 @@ CI configuration is provided in .github/workflows/ci.yml
      - replacing macros with enums
      - avoid creating C-style arrays, should use ```std::array<>``` instead
      - ...
+3. Valgrind<br>
+```cd ONRL``` and run ```valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/ONRL &>../tools/valgrind/valgrind_log.txt``` which runs the executable ONRL file and tracks memory leaks.<br>
+- ```--leak-check=full``` - show all leaks
+- ```--show-leak-kinds=all``` - categorizes all kinds of leaks
+- ```--track-origins=yes``` - shows where uninitialized values come from
 
+The short leak summary is:
+```
+LEAK SUMMARY:
+    definitely lost: 184 bytes in 1 blocks
+    indirectly lost: 1,825 bytes in 2 blocks
+    possibly lost: 0 bytes in 0 blocks
+    still reachable: 74,869 bytes in 558 blocks
+    suppressed: 0 bytes in 0 blocks
+```
+While the full leak report can be found in the log.<br>
+As we can see, there is a lot of still reachable memory. That is memory that was left allocated at program exit but it was still reachable. This in it self is not a big problem.For example, in record 74/130 we have still reachable memory that happened due to ```gfx::Console::Console(unsigned int, unsigned int, std::string, unsigned int)``` which creates a console i.e. a game window. The practice of leaveing this memory allocated at program end without losing the pointer to it seems standard for GUI applications that rely on the OS to clean up such memory on program exit.<br>
+In record 120/130 we have our only definitely lost memory, which is a genuine memory leak. However, the leak didn't occur in the repository code, but instead it happened in the code of the lidbus-1 library.<br>
+In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the lidbus-1 library, not in the original ONRL source code.<br>
 ## Conclusions
 (To be completed after analysis)
