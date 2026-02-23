@@ -16,7 +16,7 @@ This repository has been inactive for some time, so the project in question is n
 I actually forked that repository to add:
 
 
-- ```#include``` <cstdint> to ONRL/src/main.cpp
+- ```#include <cstdint>``` to ONRL/src/main.cpp
 - ```#include <cstdint>``` and ```#include <string>``` to ONRL/src/console.h
 
 and change the movement controls to wasd from hjkl in main.cpp lines 41-44.<br> <br>
