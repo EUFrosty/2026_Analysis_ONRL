@@ -162,7 +162,18 @@ While the full leak report can be found in the log.<br>
 
    The two uncovered functions in ```console.cpp``` are ```get_mouse_tile_xy()``` and ```poll_event()```, both of which require live OS input (mouse position and window events) and cannot be exercised in an automated test without a running game loop.
 5. Lizard <br>
-TODO
+   Lizard is a cyclomatic complexity analyzer. Cyclomatic complexity (CCN) counts the number of independent paths through a function — each `if`, `for`, `while`, or `switch` case adds 1 to the base value of 1. Higher CCN means the function is harder to understand, test, and maintain. Install with ```pip install lizard``` and run ```bash tools/lizard/run_lizard.sh``` from the repo root. The command used is:
+   ```
+   lizard ONRL/src/ 2>&1 | tee tools/lizard/lizard.log
+   ```
+   - ```lizard ONRL/src/``` runs the tool on all source files in the directory
+   - ```2>&1``` merges stderr into stdout so all output is captured
+   - ```tee``` writes the output to the log file and also prints it to the terminal <br><br>
+
+   Lizard reports 3 warnings (functions with CCN > 15, which is the default threshold):
+   - ```main``` in ```main.cpp``` — CCN 31, 107 NLOC. This is the game loop: it handles input, updates all entities, renders the map and more. All of that logic is in one function, which is why the complexity is so high.
+   - ```game::BSP_recurse_region``` in ```map.cpp``` — CCN 16, 38 NLOC. This is the recursive Binary Space Partitioning map generator. It has many branching conditions to decide how to split regions and place rooms.
+   - ```util::sf::to_string``` in ```util.cpp``` — CCN 25, 29 NLOC. This is a switch statement with one case per SFML event type (24 cases). Each case adds 1 to the CCN, making this look complex even though it's really not.
 
 6. Hyperfine <br>
 TODO

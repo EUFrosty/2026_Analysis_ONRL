@@ -35,7 +35,13 @@ jobs:
           cd ONRL/build
           ./ONRL || echo "Executable built but cannot run in CI (no display)"
 
+      - name: Install lizard
+        run: pip install lizard --break-system-packages
+
       - name: Build and run unit tests
         run: |
           cd tools/unit-tests
           xvfb-run bash run_tests.sh
+
+      - name: Run lizard
+        run: bash tools/lizard/run_lizard.sh
