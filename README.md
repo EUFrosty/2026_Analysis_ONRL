@@ -116,7 +116,49 @@ While the full leak report can be found in the log.<br>
 - In records 83/130 and 119/130 we have our only two instances of indirectly lost memory. Again, both of these memory leaks happen in the libdbus-1 library, not in the original ONRL source code.<br>
 
 4. Unit testing <br>
-TODO
+   Unit tests are written using the GoogleTest framework and are located in ```tools/unit-tests/test_console.cpp``` and ```tools/unit-tests/test_util.cpp```. To reproduce, run ```bash tools/unit-tests/run_tests.sh``` from the repo root. The script compiles the tests, runs them, and generates a coverage report. <br>
+   The compile command used inside the script is:
+   ```
+   g++ -std=c++20 --coverage -g test_console.cpp test_util.cpp ../../ONRL/src/console.cpp ../../ONRL/src/util.cpp -o runTests -lgtest -lgtest_main -lpthread -lsfml-graphics -lsfml-window -lsfml-system
+   ```
+   - ```--coverage``` enables GCC's built-in coverage instrumentation. At compile time it produces ```.gcno``` files (a static map of the code structure), and at runtime the executed binary writes ```.gcda``` files (hit counters for each line and branch)
+   - ```-lgtest -lgtest_main``` links the GoogleTest static libraries
+   - ```-lpthread``` is required by GoogleTest
+   - ```-lsfml-*``` links the SFML libraries needed by the tested source files <br><br>
+
+   12 tests pass across 3 test suites. <br><br>
+
+   Tests for ```gfx::Console``` from ```console.cpp``` (```test_console.cpp```):
+   - ```ConsoleTest.CreateConsole``` - constructs a console window and verifies that ```render()``` and ```window_display()``` can be called without throwing an exception
+   - ```ConsoleTest.SetAndGetGlyph``` - sets a glyph at position (0,0) with a specific character and colors, then reads it back and verifies the values match
+   - ```ConsoleTest.SetGlyphOutOfBounds``` - verifies that ```set_glyph()``` throws ```std::runtime_error``` when given coordinates outside the console bounds
+   - ```ConsoleTest.GetGlyphOutOfBounds``` - verifies that ```get_glyph()``` throws ```std::runtime_error``` when given coordinates outside the console bounds
+   - ```ConsoleTest.GetWindow``` - verifies that ```get_window()``` returns a reference to an open SFML window
+   - ```ConsoleTest.SetRegion``` - sets a 2x2 block of glyphs using ```set_region()``` and verifies each position contains the correct glyph <br><br>
+
+   Tests for utility functions from ```util.cpp``` (```test_util.cpp```):
+   - ```UtilTest.DistanceSamePoint``` - verifies that the distance from a point to itself is 0
+   - ```UtilTest.DistancePythagorean``` - verifies the distance calculation using a 3-4-5 right triangle (expected result: 5.0)
+   - ```UtilTest.HaltCatchFireThrows``` - verifies that ```halt_catch_fire()``` throws ```std::runtime_error```
+   - ```SfUtilTest.ToStringClosed``` - verifies that ```util::sf::to_string()``` returns ```"Closed"``` for the ```sf::Event::Closed``` event type
+   - ```SfUtilTest.ToStringKeyPressed``` - verifies that ```util::sf::to_string()``` returns ```"KeyPressed"``` for the ```sf::Event::KeyPressed``` event type
+   - ```SfUtilTest.ToStringMouseMoved``` - verifies that ```util::sf::to_string()``` returns ```"MouseMoved"``` for the ```sf::Event::MouseMoved``` event type <br><br>
+
+   Code coverage is measured using ```lcov``` and ```genhtml```:
+   ```
+   lcov --capture --directory . --output-file coverage.info --ignore-errors mismatch
+   genhtml coverage.info --output-directory coverage_report
+   ```
+   - ```--capture --directory .``` scans the current directory for ```.gcda``` files and collects the coverage data
+   - ```--output-file coverage.info``` writes the collected data to a single ```.info``` file
+   - ```--ignore-errors mismatch``` is required because lcov 2.x is stricter than earlier versions and errors out on minor line number mismatches in gcov data generated for GoogleTest macros. The mismatches are harmless.
+   - ```genhtml``` generates an HTML report from the ```.info``` file into ```coverage_report/``` <br><br>
+
+   The coverage results for the project source files are:
+   - ```console.cpp```: 69/86 lines covered (80.2%), 7/9 functions covered (77.8%)
+   - ```util.cpp```: 13/35 lines covered (37.1%), 4/4 functions covered (100%) <br><br>
+
+   The two uncovered functions in ```console.cpp``` are ```get_mouse_tile_xy()``` and ```poll_event()```, both of which require live OS input (mouse position and window events) and cannot be exercised in an automated test without a running game loop.
 5. Lizard <br>
 TODO
 6. Hyperfine <br>

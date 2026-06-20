@@ -20,7 +20,8 @@ jobs:
           sudo apt install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev \
                               libxi-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev \
                               libudev-dev libopenal-dev libflac-dev libvorbis-dev libogg-dev \
-                              libfreetype6-dev
+                              libfreetype6-dev \
+                              libgtest-dev lcov xvfb
 
       - name: Build ONRL
         run: |
@@ -33,3 +34,8 @@ jobs:
         run: |
           cd ONRL/build
           ./ONRL || echo "Executable built but cannot run in CI (no display)"
+
+      - name: Build and run unit tests
+        run: |
+          cd tools/unit-tests
+          xvfb-run bash run_tests.sh
