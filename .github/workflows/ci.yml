@@ -21,7 +21,7 @@ jobs:
                               libxi-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev \
                               libudev-dev libopenal-dev libflac-dev libvorbis-dev libogg-dev \
                               libfreetype6-dev \
-                              libgtest-dev lcov xvfb
+                              libgtest-dev lcov xvfb libsfml-dev
 
       - name: Build ONRL
         run: |

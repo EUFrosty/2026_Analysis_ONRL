@@ -94,7 +94,9 @@ CI configuration is provided in .github/workflows/ci.yml
      - avoid pointer arithmetic
      - replacing macros with enums
      - avoid creating C-style arrays, should use ```std::array<>``` instead
-     - ...
+     - ...    
+
+
 3. Valgrind<br>
 ```cd ONRL``` and run ```valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/ONRL &>../tools/valgrind/valgrind_log.txt``` which runs the executable ONRL file and tracks memory leaks.<br>
 - ```--leak-check=full``` - show all leaks
@@ -161,6 +163,7 @@ While the full leak report can be found in the log.<br>
    The two uncovered functions in ```console.cpp``` are ```get_mouse_tile_xy()``` and ```poll_event()```, both of which require live OS input (mouse position and window events) and cannot be exercised in an automated test without a running game loop.
 5. Lizard <br>
 TODO
+
 6. Hyperfine <br>
 TODO
 
