@@ -194,3 +194,15 @@ While the full leak report can be found in the log.<br>
    Range (min … max):   15.712 s … 16.137 s    5 runs
    ```
    The build is consistent (σ = 0.175 s) with a mean of ~15.9 seconds. The small standard deviation means that the build time is stable and consistent. User time (12.7 s) is less than wall time (15.9 s).
+
+## Conclusions
+
+- Unsigned comparisons against zero in ```map.cpp``` and ```unit.cpp``` are always true or always false
+- ```util::distance``` contains an unsigned integer underflow bug — the result is only correct when the first argument is component-wise greater than or equal to the second
+- Parameters are passed by value instead of by ```const``` reference in ```log()``` and ```set_region()```, causing unnecessary copies on every call
+- The ```main``` function has a cyclomatic complexity of 31 — it handles input, AI, physics, and rendering in a single monolithic function, making it difficult to extend or test
+- No memory leaks were found in the project's own code — all leaks reported by Valgrind trace to the ```libdbus-1``` system library used internally by SFML
+- Build time (~15.9 s) is dominated by SFML being compiled from source; the project's own source would compile much faster in comparison 
+- 39 out of 42 functions have a cyclomatic complexity of 15 or below, indicating the codebase is generally straightforward outside of the game loop and map generation algorithm
+
+A detailed analysis with full findings for each tool can be found in ```ProjectAnalysisReport_EN.md``` (English) and ```ProjectAnalysisReport_SR.md``` (Serbian).
